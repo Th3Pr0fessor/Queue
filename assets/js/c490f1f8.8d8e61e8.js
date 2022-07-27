@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkqueue=self.webpackChunkqueue||[]).push([[551],{2355:e=>{e.exports=JSON.parse('{"allTagsPath":"/Queue/blog/tags","slug":"/Queue/blog/tags/facebook","name":"facebook","count":1,"permalink":"/Queue/blog/tags/facebook"}')}}]);
