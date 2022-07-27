@@ -2,125 +2,46 @@
 sidebar_position: 1
 ---
 
-# Enemy API
-
-As seen in **[Getting Started](/docs/tutorial-basics/start)** there are many settings you can tinker with.
+# Queue API
 
 ### General Overview
 
 ```lua
+local Queue = require(game.ReplicatedStorage.Queue) -- Requiring Module
+local TestQueue = Queue.new() -- Creating a new Queue
 
--- Defining Enemy Settings
+local function HelloWorld() -- Example Function
+    print('Hello World')
+end
 
-local enemy_settings = {
-    health = 100, -- Enemy Health
-    damage = 1, -- Enemy Base Damage
-    wander = false, -- Enemy Wandering
+TestQueue:Enqueue(HelloWorld, 2) -- prints Hello World with a 2 second wait after execution
 
-    attack_range = 20, -- Enemy Search Radius
-    attack_radius = 5, -- Enemy Attack Radius
-
-    attack_ally = false, -- Enemy Attacking Team Members
-    attack_npcs = true, -- Enemy Attacking Random NPC's
-    attack_players = true, -- Enemy Attacking Players
-
-    default_animations = {8972576500}, -- Enemy Animations should be used for 'Light' Attacks // Example default_animations = {8972576500}
-    default_functions = { -- Functions for said 'Light' Attacks ^
-        function(target) -- functions pass the target as the first argument automatically
-            print(target)
-        end,
-    },
-
-    special_animations = {8972576500}, -- Enemy Animations should be used for 'Heavy' Attacks // Example special_animations = {8972576500}
-    special_functions = { -- Functions for said 'Heavy' Attacks ^
-        function(target) -- functions pass the target as the first argument automatically
-            print('specialMove')
-        end,
-    },
-}
 ```
 
 <hr/>
 
 ## General Settings
 
-### Health
+## Events
 
-Changes the initial health to setting's value.
+### General Calling
 
-> `health = 100, -- Enemy Health`
-
-### Damage
-
-Creates damage set to the setting's value.
-
-> `damage = 1, -- Enemy Base Damage`
-
-### Wander
-
-If set to true enemy will walk around freely withing the attack_range
-
-> `wander = false, -- Enemy Wandering`
-
-<hr/>
-
-## Attack Settings
-
-### Attack Range
-
-The search radius of initialized enemy
-
-> `attack_range = 20, -- Enemy Search Radius`
-
-### Attack Radius
-
-The maximum distance of the enemy target can be in order for an enemy to attack
-
-> `attack_radius = 5, -- Enemy Attack Radius`
-
-### Attack Ally
-
-Enemy will attack Humanoid Model with the same tag as itself
-
-> `attack_ally = false, -- Enemy Attacking Team Members`
-
-### Attack Npcs
-
-Enemy will attack Humanoid Model that does not possess the same tags nor is a player
-
-> `attack_npcs = true, -- Enemy Attacking Random NPC's`
-
-### Attack Players
-
-Enemy will attack players
-
-> `attack_players = true, -- Enemy Attacking Players`
-
-## Animations & Effects
-
-Here we will encompass `default` and `special` into 2 bullet points
-
-### default attacks
-
-Default animations should be companied by functions, the index of the animation matches up with the index of the function, lets take the following code for example:
+An event that gets fired upon a Cue being called
 
 ```lua
-default_animations = {8972576500, 9039173175}, -- Enemy Animations should be used for 'Light' Attacks // Example default_animations = {8972576500}
-default_functions = { -- Functions for said 'Light' Attacks ^
-    function(target) -- functions pass the target as the first argument automatically
-        print('move 1')
-    end,
+local TestQueue = Queue.new()
 
-    function(target) -- functions pass the target as the first argument automatically
-        print('move 2')
-    end,
-}
+TestQueue.Calling:Connect(function()
+	print('A cue has been called')
+end)
 ```
 
-if the animation `8972576500` _(default_animations[2])_ at the index of 2 plays the following function will be called:
+### Specific Calling
+
+An event that gets fired upon a given Cue being called
 
 ```lua
-function(target) -- functions pass the target as the first argument automatically
-    print('move 2')
-end
+TestQueue:Enqueue(function() end, 2):Connect(function()
+    print("I've been called!")
+end)
 ```

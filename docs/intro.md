@@ -6,11 +6,13 @@ sidebar_position: 1
 
 # Home
 
-EasyEnemies is an open-source Enemy module that can help you quickly make functional enemies in your games.
+Queue is an open-source module that can help you quickly organize actions in a script.
 
-## Why choose EasyEnemies?
+## Why choose Queue?
 
-EasyEnemies aims to cut the amount of time it takes to typically set up enemies in a typical Roblox game by having the core foundations of an enemy ai already coded. EveryEnemy registered by the module is stored under the models tag name or model name in a hash table to keep track of either individual enemies or a collection of them. There are a list of settings that you can change to get each enemy to fit your game in the best way possible. In the near future EasyEnemies will be functional with non-humanoid models to aid performance.
+As a preface the inspiration behind Queue derives from my tendency to visualize programming as a play with scripts being directors and functions being cue's that are called as the game is played.
+
+With that being said Queue aims to aid in delegating task in a more First to last fashion.
 
 To get started visit **[Getting Started](/docs/tutorial-basics/start)**.
 
@@ -19,5 +21,5 @@ To get started visit **[Getting Started](/docs/tutorial-basics/start)**.
 -   [github]
 -   [Roblox Library]
 
-[github]: https://github.com/Th3Pr0fessor/EasyEnemies
-[roblox library]: https://www.roblox.com/library/9041187417/EasyEnemies
+[github]: https://github.com/Th3Pr0fessor/Queue
+[roblox library]: https://www.roblox.com/library/9041187417/Queue

@@ -2,9 +2,9 @@
 sidebar_position: 4
 ---
 
-# EasyEnemies Settings
+# Queue Settings
 
-Here are a list of EasyEnemies features that can be changed in the settings. (found in `EasyEnemies.Settings` Module)
+Here are a list of Queue features that can be changed in the settings. (found in `Queue.Settings` Module)
 
 ```lua
 local SETTINGS = {}
